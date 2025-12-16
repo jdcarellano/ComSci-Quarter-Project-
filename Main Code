@@ -1,2 +1,72 @@
-#Main Code 
+lost_and_found = {
+    "Bag", "Pencil",
+    "Makeup Kit", "Notebook",
+    "Water Bottle", "Umbrella",
+    "Headphones", "Charger",
+    "Wallet" 
+}
+
+
+print("Welcome to the Lost and Found System!")
+print(lost_and_found)
+print("So, this is the lost and found system. You can put lost items and take found items here.")
+
+lost = input(str("have you lost any item lately? (yes/no): "))
+if lost == "yes":
+    item_name = input("Please enter the name of the lost item: ")
+    lost_and_found.add(item_name)
+    print(item_name, "Have Been putted in the lost and found system.")
+    print(lost_and_found)
+    print("Do you have any more lost items to put?")
+    more_lost = input(str("yes/no: "))
+
+    while more_lost == "yes":
+        item_name = input("Please enter the name of the lost item: ")
+        print(item_name, "Have Been putted in the lost and found system.")
+        print("Do you have any more lost items to put?")
+        more_lost = input(str("yes/no: "))
+
+    if more_lost == "no":
+        print("Press no to exit.")
+        print("Thank you for using the lost and found system.")
+
+else:
+    print("Did someone have an item in the lost and found?")
+found = input(str("yes/no: "))
+
+if found == "yes":
+    item_name = input("Please enter the name of the found item: ")
+    
+    if item_name in lost_and_found:
+        print("You have taken the ", item_name, " from the lost and found.")
+        answer = input(str("Do you have more items to take? (yes/no): ")) 
+        if answer == "yes":
+            while True:
+                item_name = input("Please enter the name of the found item: ")
+                if item_name in lost_and_found:
+                    print("You have taken the ", item_name, " from the lost and found.")
+                else:
+                    print("Sorry, this item is not in the lost and found records.")
+                more_items = input(str("Do you have more items to take? (yes/no): "))
+                if more_items == "no":
+                    print("Thank you for using the lost and found system.")
+                    break
+                else:                    continue   
+    else:
+        print("Sorry, this item is not in the lost and found records.")
+    while True:
+        more_found = input(str("Do you have any more found items to check? (yes/no): "))
+        if more_found == "yes":
+            item_name = input("Please enter the name of the found item: ")
+            if item_name in lost_and_found:
+                print("You have taken the ", item_name, " from the lost and found.")
+            else:
+                print("Sorry, this item is not in the lost and found records.")
+                continue
+        else:
+            print("Thank you for using the lost and found system.")
+            break
+else:
+        print("Thank you for checking the lost and found.")
+
 
